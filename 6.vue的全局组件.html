@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue的全局组件</title>
+</head>
+<body>
+<div id="practice">
+    <com></com>
+    {{num}}
+</div>
+<script src="js/vue.min.js"></script>
+<script>
+    //组件的定义
+    let com = {
+        template: `
+        <div>
+        这是一个全局组件
+        username:{{name}}   age:{{age}}
+        <input type="button" value="点我长大" @click="change_age">
+        </div>
+        `,
+        data: function (){
+            return {
+                name: 'wyl',
+                age: 18,
+            }
+        },
+        methods: {
+            change_age(){
+              this.age = this.age + 1
+            },
+        },
+    }
+    //组件的注册
+    Vue.component('com', com)
+    new Vue({
+        el: '#practice',
+        data:{
+            num: 20,
+        },
+    })
+</script>
+</body>
+</html>

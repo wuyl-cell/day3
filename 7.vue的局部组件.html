@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue的局部组件</title>
+</head>
+<body>
+<div id="practice">
+    <second test="text"></second>
+    <second test="button"></second>
+
+</div>
+<script src="js/vue.min.js"></script>
+<script>
+    let second = {
+        template: `
+        <input :type="test" value="这是一个局部组件">
+        `,
+        props: ['test'],   //使用该方法进行数据传递时，在组件的标签中不许进行绑定
+    }
+    new Vue({
+        el: '#practice',
+        data: {
+
+        },
+        components: {
+            'second': second,
+        }
+    })
+</script>
+</body>
+</html>

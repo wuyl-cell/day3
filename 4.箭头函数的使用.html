@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>箭头函数的使用</title>
+</head>
+<body>
+<div id="practice">
+
+</div>
+<script src="js/vue.min.js"></script>
+<script>
+    let user = {
+        'username': 'wyl',
+        'password': '18',
+        name: function (){
+            console.log(this.username);   //this指向当前的user实例
+        },
+        //回调函数
+        call: function (){
+            setTimeout(function (){
+                console.log('回调函数中：', this.username);
+            })
+        },
+        //回调函数中使用箭头函数
+        call1: function (){
+            setTimeout(() => {
+                console.log('回调函数中使用箭头函数：',this.username);
+            })
+        }
+    }
+    user.name()
+    user.call()
+    user.call1()
+
+    new Vue({
+        el: '#practice',
+        data: {
+
+        },
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>箭头函数</title>
+</head>
+<body>
+<div id="practice">
+
+</div>
+<script src="js/vue.min.js"></script>
+<script>
+    //正常函数
+    function add(a,b){
+        console.log('正常函数：',a + b);
+    }
+    add(3, 4)
+    //匿名函数
+    add1 = function (a,b){
+        console.log('匿名函数：',a + b);
+    }
+    add1(4,5)
+    //箭头函数(函数体只有一句)
+    add2 = (a,b) => console.log('箭头函数(函数体一句)：',a+b)
+    add2(1,2)
+    //箭头函数(函数体不止一句)
+    add3 = (a,b) => {
+        console.log("函数体不止一句",a);
+        console.log("函数体不止一句",b);
+    }
+    add3(2,3)
+    //箭头函数只有一个参数(可省略参数括号)
+    add4 = a => {
+        console.log('函数体只有一个参数：',a)
+    }
+    add4(4)
+    //箭头函数没有参数时括号不能省略
+    add5 = () => console.log('箭头函数没有参数不能省略括号')
+    add5()
+    //箭头函数函数体只有return语句时，return可省略
+    add6 = a => a
+    console.log('函数体只有return时，return可省略：',add6(6))
+    new Vue({
+        el: '#practice',
+        data: {
+
+        },
+    })
+</script>
+</body>
+</html>

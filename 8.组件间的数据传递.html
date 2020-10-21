@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件间的数据传递</title>
+</head>
+<body>
+<div id="practice">
+<!--    <com :test="age"></com>-->
+    <com @btu="clickMe" :test="age"></com>
+</div>
+<script src="js/vue.min.js"></script>
+<script>
+    let com = {
+        //父传子
+        // template: `
+        // <div>这是组件{{test}}</div>
+        // `,
+        // data: {
+        //   function(){
+        //       return {
+        //           num: 30,
+        //       }
+        //   }
+        // },
+        // props: ['test'],
+
+
+        // 子传父
+        template: `
+        <div>这是组件
+        {{test}}
+        <input type="button" value="子传父" @click="clickBtu">
+        </div>
+        `,
+        data: {
+          function(){
+              return {
+                  num: 30,
+              }
+          }
+        },
+        props: ['test'],
+        methods: {
+            clickBtu: function (){
+                this.$emit('btu', 30)
+            }
+        }
+    }
+    new Vue({
+        el: '#practice',
+        data: {
+            age: 18,
+        },
+        components: {
+          'com': com,
+        },
+        methods: {
+            clickMe: function (num){
+                this.age = num
+            }
+        }
+    })
+</script>
+</body>
+</html>

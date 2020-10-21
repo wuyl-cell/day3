@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性computed</title>
+</head>
+<body>
+<div id="practice">
+    <input type="number" v-model="tens_place" max="9" min="0">
+    <input type="number" v-model="ones_place" max="9" min="0">
+    <br>
+    <span>结果：{{tens_place*10 + +ones_place}}</span>
+    <span>计算属性的结果：{{result}}</span>
+    <br>
+    <input type="text" v-model="tens_place">
+    <input type="text" v-model="ones_place"><br>
+    <span>结果：{{tens_place + ones_place}}</span>
+    <span>结果： {{result1}}</span>
+</div>
+<script src="js/vue.min.js"></script>
+<script>
+    new Vue({
+        el: "#practice",
+        data: {
+            ones_place:'',
+            tens_place:'',
+        },
+        computed: {
+          result() {
+              return this.tens_place*10 + +this.ones_place
+          },
+            result1(){
+              return this.tens_place + this.ones_place
+            },
+        },
+    })
+</script>
+</body>
+</html>

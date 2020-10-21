@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>监听事件 watch</title>
+</head>
+<body>
+<div id="practice">
+    <input type="text" v-model="name"><br>
+    first_name: <input type="text" v-model="first_name">
+    last_name: <input type="text" v-model="last_name">
+</div>
+<script src="js/vue.min.js"></script>
+<script>
+    new Vue({
+        el: '#practice',
+        data: {
+            name:'',
+            first_name:'',
+            last_name:''
+        },
+        watch:{
+            name(){
+                this.first_name = this.name.split(' ')[0]
+                this.last_name = this.name.split(' ')[1]
+            }
+        }
+    })
+</script>
+</body>
+</html>
